@@ -58,6 +58,8 @@ public class Main {
         Person osobaAzuriranje = em.find(Person.class, p1.getId());
         if (osobaAzuriranje != null) {
             osobaAzuriranje.setName("Hrvoje Horvat ažuriran");
+            //Izvršava se Update s merge
+            em.merge(osobaAzuriranje);
             System.out.println("Ažurirano ime je:\t" + osobaAzuriranje.getName());
         }
         tx.commit();
